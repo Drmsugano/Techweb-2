@@ -62,6 +62,9 @@ switch ($url) {
     case "/Vendedor/form/store":
         VendedorController::create();
         break;
+    case "/Vendedor/update":
+        VendedorController::edit();
+        break;
     case "/Hello":
         phpinfo();
         break;

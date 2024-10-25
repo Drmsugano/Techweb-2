@@ -41,12 +41,12 @@
                                     include("../app/view/components/modal.php");
                                 ?>
                                     <tr>
-                                        <th scope="row"><?= $vendedores->id ?></th>
+                                        <td><?= $vendedores->id ?></th>
                                         <td><?= $vendedores->nome ?></td>
                                         <td><?= $vendedores->nivel ?></td>
                                         <td><?= $vendedores->equipe ?></td>
                                         <td>
-                                            <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#equipeModal<?= $equipes->id ?>">Editar</button>
+                                            <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#vendedoresModal<?= $vendedores->id ?>">Editar</button>
                                             <a class="btn btn-danger" href='/Vendedor/destroy?id=<?= $vendedores->id ?>' onclick="return confirm('Confirma a Exclusão?')">Excluir</a>
                                         </td>
                                     </tr>

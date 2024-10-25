@@ -100,4 +100,68 @@ switch ($url) {
         </div>
         <?php
         break;
-}
+    case "/Vendedor": ?>
+        <div class="modal fade" id="vendedoresModal<?= $vendedores->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Alteração de Equipes</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <?php
+                        foreach ($vendedor->read($vendedores->id) as $vendedor_read) { ?>
+                            <form action="/Vendedor/update" method="post" enctype="multipart/form-data">
+                                <div class="container">
+                                    <div class="d-flex">
+                                        <label class="fs-6 fw-bold me-2" for="id">ID do Vendedor: </label>
+                                        <input type="text" class="form-control form-control-sm mb-2 w-auto"
+                                            value="<?= $vendedor_read->id ?>" name="id" readonly>
+                                    </div>
+                                    <br>
+                                    <label class="fs-6 fw-bold" for="nome">Nome do Vendedor</label>
+                                    <input type="text" class="form-control mb-3" name="nome"
+                                        placeholder="<?= $vendedor_read->nome ?>">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="fs-5 fw-bold mp-3" for="inicio">Nível do Vendedor</label>
+                                            <input type="text" class="form-control mb-3" name="nivel"
+                                                placeholder="<?= $vendedor_read->nivel ?>" required>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fs-5 fw-bold mp-3">Equipe</label>
+                                            <select class="form-control" name="equipe">
+                                                <?php
+                                                foreach ($equipe->read($vendedor_read->id) as $equipes) {
+                                                    ?>
+                                                    <option value="<?= $equipes->id ?>" selected><?= $equipes->nome ?></option>
+                                                <?php } ?>
+                                                <?php foreach ($equipe->read_all() as $equipes) { ?>
+                                                    <option value="<?= $equipes->id ?>"><?= $equipes->nome ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-3">
+                                    <div class="d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-primary" name="alterarEquipe">
+                                            Alterar Equipe
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        break;
+    case "": ?>
+
+        <?php
+        break;
+} ?>
