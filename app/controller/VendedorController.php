@@ -62,7 +62,7 @@ class VendedorController extends Controller
             $vendedor = new Vendedor();
             $vendedor->id = $_REQUEST['id'];
             if ($dao->delete($vendedor->id)) {
-                header("Location: /Equipe");
+                header("Location: /Vendedor");
             } else {
                 echo '<script type="text/javascript">alert("Erro em Deletar");</script>';
             }

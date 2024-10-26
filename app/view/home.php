@@ -23,7 +23,7 @@
             <div class="card border-dark" style="width:95%; height:auto; margin: 0 auto;">
                 <div class="card-body">
                     <div class="card-title">
-                        <img src="/img/.png" height="55rem">
+                        <img src="/img/ifpr.png" height="55rem">
                     </div>
                 </div>
             </div>

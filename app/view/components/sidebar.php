@@ -43,6 +43,16 @@
                         <li><a href="/Vendedor">Listar</a></li>
                     </ul>
                 </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="/Venda">Vendas</a>
+                        <i class='bx bxs-chevron-down arrow-sub'></i>
+                    </div>
+                    <ul class="sub-sub-menu">
+                        <li><a href='/Venda/create'>Cadastrar</a></li>
+                        <li><a href="/Venda">Listar</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <div class="profile-details">
@@ -55,9 +65,9 @@
                     Online
                 </div>
             </div>
-            <div class="ps-3 ms-4"></div>
+            <div class="ps-3 ms-5"></div>
             <div class="vr" style="height:auto; color: white;"></div>
-            <a href="/logout"><i class='bx bx-log-out pe-3'></i></a>
+            <a href="/logout"><i class='bx bx-log-out ps-2 ms-5 h-5 btn btn-danger btn-lg w-5' style="color: white;"></i></a>
         </div>
         </li>
     </ul>

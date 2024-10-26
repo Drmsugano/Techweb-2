@@ -5,8 +5,8 @@ class Venda {
     private $id;
     private $valor;
     private $data;
-    private $produto_id;
-    private $vendedor_id;
+    private $produto;
+    private $vendedor;
 
     function __set($atributo, $valor) {
         $this->$atributo = $valor;

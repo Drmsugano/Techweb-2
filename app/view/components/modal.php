@@ -133,7 +133,7 @@ switch ($url) {
                                             <label class="fs-5 fw-bold mp-3">Equipe</label>
                                             <select class="form-control" name="equipe">
                                                 <?php
-                                                foreach ($equipe->read($vendedor_read->id) as $equipes) {
+                                                foreach ($equipe->read($vendedor_read->equipe) as $equipes) {
                                                     ?>
                                                     <option value="<?= $equipes->id ?>" selected><?= $equipes->nome ?></option>
                                                 <?php } ?>
@@ -146,7 +146,7 @@ switch ($url) {
                                 </div>
                                 <div class="m-3">
                                     <div class="d-flex justify-content-between">
-                                        <button type="submit" class="btn btn-primary" name="alterarEquipe">
+                                        <button type="submit" class="btn btn-primary" name="alterarVendedor">
                                             Alterar Equipe
                                         </button>
                                     </div>
@@ -160,8 +160,71 @@ switch ($url) {
         </div>
         <?php
         break;
-    case "": ?>
-
+    case "/Venda": ?>
+        <div class="modal fade" id="vendasModal<?= $vendas->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Alteração de Vendas</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <?php
+                        foreach ($venda->read($vendas->id) as $vendas_read) { ?>
+                            <form action="/Venda/update" method="post" enctype="multipart/form-data">
+                                <div class="container">
+                                    <div class="d-flex">
+                                        <label class="fs-6 fw-bold me-2" for="id">ID do Venda: </label>
+                                        <input type="text" class="form-control form-control-sm mb-2 w-auto"
+                                            value="<?= $vendas_read->id ?>" name="id" readonly>
+                                    </div>
+                                    <br>
+                                    <label class="fs-5 fw-bold mp-3" for="nome">Valor da Venda</label>
+                                    <input type="text" class="form-control mb-3" name="valor" id="nome" value="<?= $vendas_read->valor ?>" required>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="fs-5 fw-bold mp-3">Produtos</label>
+                                            <select class="form-control" name="produto">
+                                                <?php
+                                                foreach ($produto->read($vendas_read->produto) as $produtos) {
+                                                    ?>
+                                                    <option value="<?= $produtos->id ?>" selected><?= $produtos->descricao ?></option>
+                                                <?php } ?>
+                                                <?php foreach ($produto->read_all() as $produtos) { ?>
+                                                    <option value="<?= $produtos->id ?>"><?= $produtos->descricao ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label class="fs-5 fw-bold mp-3">Vendedores</label>
+                                            <select class="form-control" name="vendedor">
+                                                <?php
+                                                foreach ($vendedor->read($vendas_read->vendedor) as $vendedores) {
+                                                    ?>
+                                                    <option value="<?= $vendedores->id ?>" selected><?= $vendedores->nome ?></option>
+                                                <?php } ?>
+                                                <?php foreach ($vendedor->read_all() as $vendedores) { ?>
+                                                    <option value="<?= $vendedores->id ?>"><?= $vendedores->nome ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-3">
+                                    <div class="d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-primary" name="alterarVenda">
+                                            Alterar Venda
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php
         break;
 } ?>

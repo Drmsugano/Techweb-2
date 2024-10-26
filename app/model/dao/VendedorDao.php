@@ -19,7 +19,7 @@ class VendedorDao extends Dao
             $pdo_sql = $pdo->prepare("INSERT INTO vendedor (nome, nivel, equipe_id) VALUES (:nome, :nivel, :equipe_id);");
             $pdo_sql->bindParam(":nome", $vendedor->nome, PDO::PARAM_STR);
             $pdo_sql->bindParam(":nivel", $vendedor->nivel, PDO::PARAM_STR);
-            $pdo_sql->bindParam(":equipe_id", $vendedor->equipe_id, PDO::PARAM_INT);
+            $pdo_sql->bindParam(":equipe_id", $vendedor->equipe, PDO::PARAM_INT);
             return $pdo_sql->execute();
         } catch (PDOException $ex) {
             return 'error ' . $ex->getMessage();

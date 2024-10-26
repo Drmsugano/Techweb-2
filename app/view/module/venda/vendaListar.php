@@ -12,9 +12,7 @@
 </head>
 
 <body>
-    <?php
-    include("../app/view/components/sidebar.php");
-    ?>
+    <?php include("../app/view/components/sidebar.php"); ?>
     <section class="home-section">
         <div class="home-content">
             <i class='bx bx-menu position-fixed pt-4'></i>
@@ -24,7 +22,7 @@
             <div class="card border-dark" style="width:95%; height:auto; margin: 0 auto;">
                 <div class="card-body">
                     <div class="card-title">
-                        <h4>Produtos</h4>
+                        <h4>Vendas</h4>
                         <hr>
                     </div>
                     <div class="container">
@@ -32,40 +30,29 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Descrição</th>
-                                    <th scope="col">Tipo</th>
-                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Produto</th>
+                                    <th scope="col">Vendedor</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Data da Venda</th>
                                     <th scope="col">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($produto->read_all() as $produtos) {
+                                <?php foreach ($venda->read_all() as $vendas) {
                                     include("../app/view/components/modal.php");
-                                    ?>
+                                ?>
                                     <tr>
-                                        <th scope="row">
-                                            <?= $produtos->id ?>
-                                        </th>
+                                        <td><?= $vendas->id ?></th>
+                                        <td><?= $vendas->produto ?></td>
+                                        <td><?= $vendas->vendedor ?></td>
+                                        <td><?= $vendas->valor ?></td>
+                                        <td><?= date("d/m/Y H:i:s",strtotime($vendas->data)) ?></td>
                                         <td>
-                                            <?= $produtos->descricao ?>
-                                        </td>
-                                        <td>
-                                            <?= $produtos->tipo ?>
-                                        </td>
-                                        <td>
-                                            <?= $produtos->categoria ?>
-                                        </td>
-                                        <td>
-                                            <i class="btn btn-warning text-white" data-bs-toggle="modal"
-                                                data-bs-target="#produtoModal<?= $produtos->id ?>">Editar</i>
-                                            <a class="btn btn-danger" href='/Produto/destroy?id=<?= $produtos->id ?>'
-                                                class='m-1 btn btn-danger'
-                                                onclick="return confirm ('Confirma a Exclusão')">Excluir</a>
+                                            <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#vendasModal<?= $vendas->id ?>">Editar</button>
+                                            <a class="btn btn-danger" href='/Venda/destroy?id=<?= $vendas->id ?>' onclick="return confirm('Confirma a Exclusão?')">Excluir</a>
                                         </td>
                                     </tr>
-                                    <?php
-                                }
-                                ?>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -78,5 +65,4 @@
         crossorigin="anonymous"></script>
     <script src="/js/sidebar.js"></script>
 </body>
-
 </html>
