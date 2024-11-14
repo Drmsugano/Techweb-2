@@ -1,0 +1,14 @@
+{
+    "name": "drmsugano/exemplo-orm",
+    "autoload": {
+        "psr-4": {
+            "Drmsugano\\ExemploOrm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Douglas Sugano"
+        }
+    ],
+    "require": {}
+}
