@@ -18,8 +18,6 @@ class Livro{
     private $autor;
     #[Column(type:"float")]
     private $preco;
-    #[Column(type:"blob")]
-    private $img;
 
     public function __set($nome, $valor){
         $this->$nome = $valor;

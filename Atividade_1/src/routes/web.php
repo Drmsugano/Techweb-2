@@ -5,10 +5,16 @@ switch ($url) {
     case "/":
         LivroController::index($entityManager);
         break;
-    case "/create":
-        LivroController::cadastro();
+    case "/livro/store":
+        LivroController::create($entityManager);
         break;
-    default:
-        echo "Erro";
+    case "/livro/read":
+        LivroController::read($entityManager);
+        break;
+    case "/livro/update":
+        LivroController::update($entityManager);
+        break;
+    case "/livro/remove":
+        LivroController::remove($entityManager);
         break;
 }
