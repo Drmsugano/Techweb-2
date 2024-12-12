@@ -1,0 +1,22 @@
+CREATE DATABASE ifpr_orm_3;
+
+USE ifpr_orm_3;
+
+CREATE TABLE funcionario (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NULL,
+    email VARCHAR(150) NULL,
+    senha VARCHAR(45) NULL,
+    data_cadastro datetime DEFAULT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE usuario (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    usuario VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+insert into usuario (nome, usuario, senha) values ("Armando Tramoia", "armando", "123");
