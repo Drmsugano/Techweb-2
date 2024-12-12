@@ -2,7 +2,7 @@
     "name": "drmsugano/exemplo-orm",
     "autoload": {
         "psr-4": {
-            "Drmsugano\\ExemploOrm\\": "src/"
+            "Models\\": "src/model/"
         }
     },
     "authors": [
@@ -10,5 +10,8 @@
             "name": "Douglas Sugano"
         }
     ],
-    "require": {}
+    "require": {
+        "doctrine/orm": "^3.3",
+        "symfony/cache": "^7.1"
+    }
 }
